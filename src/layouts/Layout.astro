@@ -4,20 +4,35 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import FirstView from '../components/FirstView.astro';
+import Bg from '../components/Bg.astro';
+import Intro from '../components/Intro.astro'
+import Me from '../components/Me.astro';
+
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet", href='https://unpkg.com/ress/dist/ress.min.css'> 
+		<!-- Reset CSS -->
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- p5.js -->
+		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js" integrity="sha512-M7uzkKVt12bO/ClDOwaTk0AUwDPmJzjxri/KQKft2cisI6q3zJ4KxX3IfSQXF9Z6WU6NNW67JAljgWrA4WiiOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>		 -->
+		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+		<script src="../scripts/sketch.js"></script>
 	</head>
 	<body>
-		<slot />
+		<Bg> </Bg>
+		<FirstView> </FirstView>
+		<Intro></Intro>
+		<Me></Me>
 	</body>
 </html>
 <style is:global>
@@ -29,11 +44,40 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151A;
 		background-size: 224px;
+	}
+	body {
+
+		background: linear-gradient(#00ABEB, #FF53EC);
+		color: white;
+		width: 100svw;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	canvas {
+		display: block;
+		width: 100svw;
+		height: 100svh;
+		margin: 0;
+		padding: 0;
+		/*opacity: 0.5;*/
+	}
+	.c-inner {
+		width: 1280px;
+		margin: auto;
+	}
+	.c-inner.glassBG {
+		background: rgba( 255, 255, 255, 0.15 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.20 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.4 );
+		padding: 4rem
+	}
 </style>
+
+<script>
+</script>
